@@ -1,5 +1,7 @@
+import { hot } from 'react-hot-loader/root';
 import React, { Component } from 'react';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import { browserHistory } from 'react-router'
 
 import UserProfile from './componentsV2/containers/userProfile';
 import Navbar from './componentsV2/containers/Navbar';
@@ -9,18 +11,18 @@ import AllPublications from './sections/AllPublications';
 import HelpersContainer from './componentsV2/containers/HelpersContainer';
 import RegistrationV2 from './sections/Registration';
 import LogInV2 from './sections/LogIn';
-import MyPublications from './sections/MyPublications';
+
 
 import './App.scss';
 
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router history={browserHistory}>
         <Navbar />
         <div id="app">
           <Switch>
-            <Route path="/user-profile">
+            <Route path="/my-profile">
               <UserProfile />
             </Route>
             <Route path="/registration">
@@ -28,9 +30,6 @@ class App extends Component {
             </Route>
             <Route path="/login">
               <LogInV2 />
-            </Route>
-            <Route path="/MyPublications">
-              <MyPublications />
             </Route>
             <Route path="/">
               <AllPublications />
@@ -44,4 +43,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default hot(App);

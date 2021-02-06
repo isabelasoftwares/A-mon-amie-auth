@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './index.scss';
 import { useLogOff } from '../../../hooks';
-import { PostFormBtn } from './PostFormBtn';
+import logo from './a-mon-ami.png';
 
 const Navbar = () => {
   // manage sidenav width
@@ -29,24 +29,21 @@ const Navbar = () => {
 
   return (
     <div id="navbar">
+      <Link to="/">
+        <img src={logo} width="100px" alt="A mon ami" />
+        </Link>
       <span className="hamburguer-btn" onClick={showSidebar}>
         &#9776;
       </span>
 
-      <Link to="/user-profile">
-        <span className="username-mobile">{username}</span>
+      <Link to="/my-profile">
+        <span className="username-mobile">Account</span>
       </Link>
-
-      {postSectionStatus && username !== 'not logged' && <PostFormBtn />}
 
       <div style={sidenavWidth} className="sidenav" onClick={hideSidebar}>
         <a className="close-btn" onClick={hideSidebar}>
           &times;
         </a>
-
-        <Link to="/">
-          <i className="fas fa-wrench"></i>All Posts
-        </Link>
 
         {username === 'not logged' || username === '' ? (
           <>
@@ -55,16 +52,12 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            <Link to="/MyPublications">
-              <i className="fas fa-wrench"></i>My Posts
-            </Link>
-
             <a className="log-off-btn" onClick={logOff}>
               Log off
             </a>
 
-            <Link to="/user-profile">
-              <span className="username-desktop">{username}</span>
+            <Link to="/my-profile">
+              <span className="username-desktop">Account</span>
             </Link>
           </>
         )}

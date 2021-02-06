@@ -17,7 +17,7 @@ module.exports = env => {
   const EnvironmentPlugin = new webpack.DefinePlugin(envKeys); // set enviromental variables in the compile time
 
   return {
-    entry: './src/index.js', //default value
+    entry: ['react-hot-loader/patch','./src/index.js'], //default value
     module: {
       rules: [
         {

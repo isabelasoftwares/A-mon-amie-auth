@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 import './index.scss';
 
 import Button from '../../UI/button';
@@ -16,14 +18,12 @@ const UserProfile = () => {
     history.push('/');
   };
 
+  const username = useSelector(state => state.userInfo.username);
+
   return (
     <div className="user-profile">
       <div className="user-info-container">
-        <Button handleClick={logOff} lbl="log out" />
-        <p>User Profile...</p>
-        <p>
-          Comming soon <i className="fas fa-tools"></i>
-        </p>
+        <p>{username}'s Profile...</p>
       </div>
     </div>
   );

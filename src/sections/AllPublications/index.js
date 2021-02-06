@@ -7,7 +7,9 @@ const AllPublications = () => {
 
   return (
     <>
-      <PostInterface postsList={postsList} />
+      {/* <PostInterface postsList={postsList} />
+       */}
+       <h1 style={{textAlign: "center"}}>Welcome to A Mon Ami</h1>
     </>
   );
 };
